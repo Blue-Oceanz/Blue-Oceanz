@@ -5,7 +5,8 @@ import updatesModel from './updatesModel.js';
 const applicationsModel = {};
 
 applicationsModel.getAllForUser = async (userId) => {
-    const query = new QueryFile('./models/sql/applications/getAllFromUser.sql');
+//     const query = new QueryFile('./models/sql/applications/getAllFromUser.sql');
+     const query = new QueryFile('./getAllFromUser.sql');
     const applications = await db.manyOrNone(query, { userId });
     for (let application of applications) {
         const { id } = application;
