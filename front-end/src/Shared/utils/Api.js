@@ -38,6 +38,11 @@ Api.applications = {
     delete: (id) =>
         request('DELETE', '/applications/'+id),
 };
+
+Api.comments = {
+    getAll: (id) => request('GET', '/comments/' + id)
+}
+
 Api.auth = {
     post: (body) => request('POST', '/users/'),
 };

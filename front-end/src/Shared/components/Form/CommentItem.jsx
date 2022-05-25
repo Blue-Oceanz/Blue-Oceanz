@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Form.module.css';
 
 export default function CommentItem({ comment }) {
-console.log(comment)
+// console.log(comment)
 
     return (
         <div className={styles.comment_item_container}>

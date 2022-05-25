@@ -23,12 +23,19 @@ export const ApplicationsProvider = ({ children }) => {
         applications.push(newApp);
         setApplications([...applications]);
     };
+
     const deleteApplication = async (id) => {
         const index = applications.findIndex((app) => app.id === id)
         applications.splice(index,1)
         await Api.applications.delete(id)
         setApplications([...applications]);
     };
+
+    // const getComments = async (id) => {
+    //     const index = applications.comments((app) => app.id === id)
+    //     await Api.applications.comments(index)
+    // }
+
     useEffect(getApplications, []);
     const exports = { applications, changeStatus, createApplication,deleteApplication };
     return (

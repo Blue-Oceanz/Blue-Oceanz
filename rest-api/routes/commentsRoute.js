@@ -9,11 +9,12 @@ comments.use(json());
 comments.get(
     '/comments/:appId',
     authorization,
+    // validate(commentsSchema.get),
     commentsController.getAll
 );
 
 comments.post(
-    '/',
+    '/comment',
     authorization,
     validate(commentsSchema.post),
     commentsController.createComment
