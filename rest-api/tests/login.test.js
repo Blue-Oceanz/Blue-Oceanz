@@ -41,19 +41,19 @@ token = response.body.token;
 
 // let token2 = '';
 
-beforeRegister(async () => {
-  const regResponse = await supertest(app)
-  .post('/register')
-  .send({
-    first:"jim",
-    last:"mohty",
-    email:"jm@email.com",
-    password:"12345",
-    role:"user"
-})
-// token2 = response.body.token;
+// beforeRegister(async () => {
+//   const regResponse = await supertest(app)
+//   .post('/register')
+//   .send({
+//     first:"jim",
+//     last:"mohty",
+//     email:"jm@email.com",
+//     password:"12345",
+//     role:"user"
+// })
+// // token2 = response.body.token;
   
-});
+// });
 
 describe('Add user to database with auth', () => {
   console.log(token, 'get token')
@@ -61,9 +61,9 @@ describe('Add user to database with auth', () => {
     const response = await supertest(app)
       .get('/applications')
       .set('Authorization', `Bearer ${token}`);
-      console.log(response.body[0].company)
+      console.log(response)
 
-    expect(response.body[0].company).toBe("Google");
+    expect(response).toBe("Google");
   });
 });
 
