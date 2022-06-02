@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import styles from './Topbar.module.css';
 import { Link } from 'react-router-dom';
 import Button from 'Shared/components/Button/Button';
@@ -12,6 +12,17 @@ export default function Menu() {
     const dropDownHandler = () => {
         setShowMenu(!showMenu);
     };
+    useEffect(()=>{
+        const closeDropDown = e => {
+            console.log(e.path[0].tagName)
+            if (e.path[0].tagName ==='DIV'||e.path[0].tagName==="NAV") {
+                setShowMenu(false)
+            }
+        }
+        document.body.addEventListener('click', closeDropDown)
+        return () => document.body.removeEventListener('click', closeDropDown)
+    }, [])
+    
 
     return (
         <div className={styles.dropdown}>
